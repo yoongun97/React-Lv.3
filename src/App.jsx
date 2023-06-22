@@ -59,17 +59,43 @@ const StInputValue = styled.input`
   padding: 5px;
 `;
 
+const StSelectContainer = styled.div`
+  border: 4px solid #dddddd;
+  height: 200px;
+
+  margin-top: 50px;
+
+  overflow: hidden;
+`;
+
+const StSelectBox = styled.select`
+  height: 40px;
+
+  border-radius: 10px;
+
+  margin-right: 20px;
+
+  padding: 5px;
+`;
+
 function App() {
+  const PrimaryBtnClick = () => alert("버튼을 만들어보세요.");
+
+  const NegativBtnClick = () => prompt("어렵나요?");
   return (
     <StLayout>
       <h1>Button</h1>
       <div>
-        <StLargeBtn borderColor="#ACB57E">Large Primary Button</StLargeBtn>
+        <StLargeBtn borderColor="#ACB57E" onClick={PrimaryBtnClick}>
+          Large Primary Button
+        </StLargeBtn>
         <StMediumBtn backgroundColor="#ACB57E">Medium</StMediumBtn>
         <StSmallBtn backgroundColor="#ACB57E">Small</StSmallBtn>
       </div>
       <div>
-        <StLargeBtn borderColor="#D7806C">Large Negative Button</StLargeBtn>
+        <StLargeBtn borderColor="#D7806C" onClick={NegativBtnClick}>
+          Large Negative Button
+        </StLargeBtn>
         <StMediumBtn backgroundColor="#D7806C">Medium</StMediumBtn>
         <StSmallBtn backgroundColor="#D7806C">Small</StSmallBtn>
       </div>
@@ -79,7 +105,7 @@ function App() {
         <StInputTitle>이름</StInputTitle>
         <StInputValue></StInputValue>
         <StInputTitle>가격</StInputTitle>
-        <StInputValue value="0"></StInputValue>
+        <StInputValue type="number" value="0"></StInputValue>
         <StSmallBtn backgroundColor="#ACB57E">저장</StSmallBtn>
       </StInputBox>
 
@@ -87,9 +113,37 @@ function App() {
       <StSmallBtn backgroundColor="#ACB57E">open modal</StSmallBtn>
       <StLargeBtn borderColor="#D7806C">open modal</StLargeBtn>
 
-      <div>
+      <StSelectContainer>
         <h1>Select</h1>
-      </div>
+        <StSelectBox>
+          <option key="react" value="react">
+            리액트
+          </option>
+          <option key="java" value="java">
+            자바
+          </option>
+          <option key="spring" value="spring">
+            스프링
+          </option>
+          <option key="reactNative" value="reactNative">
+            리액트네이티브
+          </option>
+        </StSelectBox>
+        <StSelectBox>
+          <option key="react" value="react">
+            리액트
+          </option>
+          <option key="java" value="java">
+            자바
+          </option>
+          <option key="spring" value="spring">
+            스프링
+          </option>
+          <option key="reactNative" value="reactNative">
+            리액트네이티브
+          </option>
+        </StSelectBox>
+      </StSelectContainer>
     </StLayout>
   );
 }
